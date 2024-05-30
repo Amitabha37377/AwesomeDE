@@ -361,7 +361,7 @@ open_image:connect_signal(
 fullscreen:connect_signal("button::release", function(_, _, _, button)
 	if button == 1 then
 		ss_tool.visible = false
-		awful.spawn.easy_async_with_shell('sleep 0.3 && scrot ~/Pictures/' .. ss_index .. '.png',
+		awful.spawn.easy_async_with_shell('sleep 0.3 && maim ~/Pictures/' .. ss_index .. '.png',
 			function()
 				naughty.notify
 				(
@@ -383,7 +383,7 @@ end)
 timer_button:connect_signal("button::release", function(_, _, _, button)
 	if button == 1 then
 		ss_tool.visible = false
-		awful.spawn.easy_async_with_shell('sleep 0.3 && scrot -d ' .. delay_time .. ' ~/Pictures/' .. ss_index .. '.png',
+		awful.spawn.easy_async_with_shell('sleep 0.3 && maim -d ' .. delay_time .. ' ~/Pictures/' .. ss_index .. '.png',
 			function()
 				naughty.notify
 				(
@@ -406,7 +406,7 @@ end)
 selection:connect_signal("button::release", function(_, _, _, button)
 	if button == 1 then
 		ss_tool.visible = false
-		awful.spawn.easy_async_with_shell('sleep 0.3 && scrot -s ' .. '~/Pictures/' .. ss_index .. '.png',
+		awful.spawn.easy_async_with_shell('sleep 0.3 && maim -s ' .. '~/Pictures/' .. ss_index .. '.png',
 			function()
 				naughty.notify
 				(
