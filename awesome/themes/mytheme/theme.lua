@@ -1,3 +1,4 @@
+local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
@@ -5,6 +6,16 @@ local dpi = beautiful.xresources.apply_dpi
 local color                                           = require("layout.topbar.colors")
 
 local theme                                           = {}
+
+-- Create function to recolor the icon (taken from BlingCrop/bling)
+--  The function need to use the absolute path of the file so using ~ will not work
+local function get_icon(icon_raw)
+  if icon_raw ~= nil then
+      return gears.color.recolor_image(icon_raw, "#ffffff")
+  else
+      return nil
+  end
+end
 
 theme.font                                            = "CaskaydiaCove Nerd Font 12"
 theme.fg                                              = color.white
@@ -84,23 +95,28 @@ theme.tasklist_shape_border_color_urgent     = color.yellow
 
 
 -- Default layout icons
-theme.layout_fairh                = "/usr/share/awesome/themes/default/layouts/fairhw.png"
-theme.layout_fairv                = "/usr/share/awesome/themes/default/layouts/fairvw.png"
-theme.layout_floating             = "/usr/share/awesome/themes/default/layouts/floatingw.png"
-theme.layout_magnifier            = "/usr/share/awesome/themes/default/layouts/magnifierw.png"
-theme.layout_max                  = "/usr/share/awesome/themes/default/layouts/maxw.png"
-theme.layout_fullscreen           = "/usr/share/awesome/themes/default/layouts/fullscreenw.png"
-theme.layout_tilebottom           = "/usr/share/awesome/themes/default/layouts/tilebottomw.png"
-theme.layout_tileleft             = "/usr/share/awesome/themes/default/layouts/tileleftw.png"
-theme.layout_tile                 = "/usr/share/awesome/themes/default/layouts/tilew.png"
-theme.layout_tiletop              = "/usr/share/awesome/themes/default/layouts/tiletopw.png"
-theme.layout_spiral               = "/usr/share/awesome/themes/default/layouts/spiralw.png"
-theme.layout_dwindle              = "/usr/share/awesome/themes/default/layouts/dwindlew.png"
-theme.layout_cornernw             = "/usr/share/awesome/themes/default/layouts/cornernw.png"
-theme.layout_cornerne             = "/usr/share/awesome/themes/default/layouts/cornerne.png"
-theme.layout_cornersw             = "/usr/share/awesome/themes/default/layouts/cornersw.png"
-theme.layout_cornerse             = "/usr/share/awesome/themes/default/layouts/cornerse.png"
-
+theme.layout_fairh                = get_icon("/usr/share/awesome/themes/default/layouts/fairhw.png")
+theme.layout_fairv                = get_icon("/usr/share/awesome/themes/default/layouts/fairvw.png")
+theme.layout_floating             = get_icon("/usr/share/awesome/themes/default/layouts/floatingw.png")
+theme.layout_magnifier            = get_icon("/usr/share/awesome/themes/default/layouts/magnifierw.png")
+theme.layout_max                  = get_icon("/usr/share/awesome/themes/default/layouts/maxw.png")
+theme.layout_fullscreen           = get_icon("/usr/share/awesome/themes/default/layouts/fullscreenw.png")
+theme.layout_tilebottom           = get_icon("/usr/share/awesome/themes/default/layouts/tilebottomw.png")
+theme.layout_tileleft             = get_icon("/usr/share/awesome/themes/default/layouts/tileleftw.png")
+theme.layout_tile                 = get_icon("/usr/share/awesome/themes/default/layouts/tilew.png")
+theme.layout_tiletop              = get_icon("/usr/share/awesome/themes/default/layouts/tiletopw.png")
+theme.layout_spiral               = get_icon("/usr/share/awesome/themes/default/layouts/spiralw.png")
+theme.layout_dwindle              = get_icon("/usr/share/awesome/themes/default/layouts/dwindlew.png")
+theme.layout_cornernw             = get_icon("/usr/share/awesome/themes/default/layouts/cornernw.png")
+theme.layout_cornerne             = get_icon("/usr/share/awesome/themes/default/layouts/cornerne.png")
+theme.layout_cornersw             = get_icon("/usr/share/awesome/themes/default/layouts/cornersw.png")
+theme.layout_cornerse             = get_icon("/usr/share/awesome/themes/default/layouts/cornerse.png")
+theme.layout_centered             = get_icon(os.getenv("HOME") .. "/.config/awesome/bling/icons/layouts/centered.png")
+theme.layout_deck                 = get_icon(os.getenv("HOME") .. "/.config/awesome/bling/icons/layouts/deck.png")
+theme.layout_equalarea            = get_icon(os.getenv("HOME") .. "/.config/awesome/bling/icons/layouts/equalarea.png")
+theme.layout_horizontal           = get_icon(os.getenv("HOME") .. "/.config/awesome/bling/icons/layouts/horizontal.png")
+theme.layout_mstab                = get_icon(os.getenv("HOME") .. "/.config/awesome/bling/icons/layouts/mstab.png")
+theme.layout_vertical             = get_icon(os.getenv("HOME") .. "/.config/awesome/bling/icons/layouts/vertical.png")
 --------------------------------
 --Taglist-----------------------
 --------------------------------
